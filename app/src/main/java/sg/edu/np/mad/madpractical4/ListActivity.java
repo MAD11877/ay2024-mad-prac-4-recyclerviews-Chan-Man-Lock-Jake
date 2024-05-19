@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -12,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -28,7 +32,7 @@ public class ListActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ImageView ivImage = findViewById(R.id.imageView01);
+        /*ImageView ivImage = findViewById(R.id.imageView01);
 
         ivImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +63,7 @@ public class ListActivity extends AppCompatActivity {
                 builder.create();
                 builder.show();
             }
-        });
+        });*/
 
         String[] user_name = {
                 "John Doe",
@@ -135,5 +139,13 @@ public class ListActivity extends AppCompatActivity {
             User user = new User(user_name[i],user_description[i],i+1,user_follow[i]);
             userArrayList.add(user);
         };
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView01);
+        UserAdapter userAdapter = new UserAdapter(userArrayList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(userAdapter);
     }
 }
