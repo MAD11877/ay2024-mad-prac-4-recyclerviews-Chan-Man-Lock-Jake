@@ -44,7 +44,6 @@ public class ListActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                //int randomInt = new Random().nextInt(99999);
                                 Random random = new Random();
                                 int randomInt = random.nextInt(99999);
 
@@ -136,7 +135,13 @@ public class ListActivity extends AppCompatActivity {
 
         ArrayList<User> userArrayList = new ArrayList<User>();
         for (int i = 0; i < 20; i++){
-            User user = new User(user_name[i],user_description[i],i+1,user_follow[i]);
+
+            int randomInt = new Random().nextInt(99999);
+            String name = "Name" + randomInt;
+            randomInt = new Random().nextInt(99999);
+            String description = "Description " + randomInt;
+
+            User user = new User(name,description,i+1,user_follow[i]);
             userArrayList.add(user);
         };
 

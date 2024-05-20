@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Initialize a new User object
-        User user = new User("John Doe", "MAD Developer", 1, false);
 
         // Get the TextViews and Button from the layout
         TextView tvName = findViewById(R.id.textView02);
@@ -35,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
         Button btnMessage = findViewById(R.id.button02);
 
         // Set the TextViews with the User's name, description and default button message
-        // tvName.setText(user.name);
-        int randomInt = getIntent().getIntExtra("randInt", 0);
-        tvName.setText(String.format("MAD %s", randomInt));
+        User user = getIntent().getSerializableExtra("userData", User.class);
+        tvName.setText(user.name);
         tvDescription.setText(user.description);
         btnFollow.setText("Follow");
 
