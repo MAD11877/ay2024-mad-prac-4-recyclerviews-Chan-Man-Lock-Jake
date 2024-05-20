@@ -13,4 +13,7 @@ public class User implements Serializable {
         id = input_id;
         followed = input_followed;
     }
+    public String getName() {return name;}
+    public String getDescription() {return description;}
+    public boolean getFollowed() {return followed;}
 }
