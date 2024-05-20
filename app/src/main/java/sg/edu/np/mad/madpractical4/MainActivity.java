@@ -45,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 if (btnFollow.getText() == "Follow"){
                     btnFollow.setText("Unfollow");
+                    user.followed = true;
                     Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
                 } else if (btnFollow.getText() == "Unfollow") {
                     btnFollow.setText("Follow");
+                    user.followed = false;
                     Toast.makeText(getApplicationContext(), "Unfollowed", Toast.LENGTH_SHORT).show();
                 }
             }
