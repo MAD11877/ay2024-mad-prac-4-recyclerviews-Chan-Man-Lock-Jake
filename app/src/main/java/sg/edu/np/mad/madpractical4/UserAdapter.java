@@ -1,5 +1,6 @@
 package sg.edu.np.mad.madpractical4;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
@@ -15,13 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     ArrayList<User> data;
     private String TAG = "UserAdapter.Java";
+    private Context context;
 
-    public UserAdapter (ArrayList<User> input) {
+    public UserAdapter (ArrayList<User> input, Context context) {
         data = input;
+        this.context = context;
     }
 
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_activity_list,parent,false);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View item = inflater.inflate(R.layout.custom_activity_list,parent,false);
         return new UserViewHolder(item);
     }
 
