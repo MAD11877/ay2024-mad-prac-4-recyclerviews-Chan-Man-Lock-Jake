@@ -36,7 +36,10 @@ public class MainActivity extends AppCompatActivity {
         User user = getIntent().getSerializableExtra("userData", User.class);
         tvName.setText(user.name);
         tvDescription.setText(user.description);
-        btnFollow.setText("Follow");
+        if (user.followed == true){
+            btnFollow.setText("Followed");
+        }
+        else btnFollow.setText("Follow");
 
         btnFollow.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
